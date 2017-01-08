@@ -1,0 +1,8 @@
+Each release of Spring Boot provides a curated list of dependencies it supports. In practice, you do not need to provide a version for any of these dependencies in your build configuration as Spring Boot is managing that for you. When you upgrade Spring Boot itself, these dependencies will be upgraded as well in a consistent way.
+
+[Note]
+You can still specify a version and override Spring Boot¡¯s recommendations if you feel that¡¯s necessary.
+The curated list contains all the spring modules that you can use with Spring Boot as well as a refined list of third party libraries. The list is available as a standard Bills of Materials (spring-boot-dependencies) and additional dedicated support for Maven and Gradle are available as well.
+
+[Warning]
+Each release of Spring Boot is associated with a base version of the Spring Framework so we highly recommend you to not specify its version on your own.
