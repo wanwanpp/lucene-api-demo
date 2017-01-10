@@ -17,7 +17,7 @@ public class TestFileSearch {
 
         IndexSearcher searcher = new IndexSearcher(directory);
         long ti = System.currentTimeMillis();
-        Term term = new Term("contents","ibm");
+        Term term = new Term("contents","蓝色");
         //TermQuery匹配分词后的最小单元
         TermQuery query = new TermQuery(term);
 //        PrefixQuery query = new PrefixQuery(term);

@@ -29,7 +29,7 @@ public class TestFileIndex {
         for (int i =0;i<files.length;i++){
             StringBuffer stringBuffer = new StringBuffer();
             FileInputStream inputStream = new FileInputStream(files[i].getCanonicalPath());
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"GBK"));
             String line = bufferedReader.readLine();
             while (line!=null){
                 stringBuffer.append(line);
