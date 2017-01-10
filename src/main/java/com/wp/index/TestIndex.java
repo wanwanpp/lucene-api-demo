@@ -8,6 +8,7 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.store.RAMDirectory;
 
 import java.io.IOException;
 
@@ -21,6 +22,11 @@ public class TestIndex {
      */
     public static final String INDEX_DIR = "F:\\IDEA\\Luence\\src\\main\\java\\com\\wp\\index";
     public static void main(String[] args) throws IOException {
+       TestIndex testIndex = new TestIndex();
+        testIndex.creatRamIndex();
+    }
+
+    public void createFirstIndex() throws IOException{
         String[] ids ={"1","2","3"};
         String[] names = {"zhangsan","lisi","wangwu"};
         String[] addresses = {"shanghai","beijing","guangzhou"};
@@ -47,5 +53,38 @@ public class TestIndex {
         System.out.println(indexReader.numDocs());
         indexReader.close();
         directory.close();
+    }
+
+
+    /**
+     * 在内存中创建索引
+     * @throws IOException
+     */
+    public void creatRamIndex() throws IOException{
+        String [] ids={"1","2","3","4"};
+        String [] names={"ZHangsan","lisi","wangwu","zhaoliu"};
+        String [] addresses={"tianjing","nanjing","beijing","nanning"};
+        String [] birthdays={"19820720","19840203","19770409","19830130"};
+        Analyzer analyzer=new StandardAnalyzer();
+
+        //在内存中创建索引
+        Directory directory = new RAMDirectory();
+        //true 表示创建或覆盖当前索引；false表示对当前索引进行追加
+        //Default value is 128
+        IndexWriter writer=new IndexWriter(directory,analyzer,true,IndexWriter.MaxFieldLength.LIMITED);
+
+        for(int i=0;i<ids.length;i++){
+            Document document=new Document();
+            document.add(new Field("id",ids[i],Field.Store.YES,Field.Index.ANALYZED));
+            document.add(new Field("name",names[i],Field.Store.YES,Field.Index.ANALYZED));
+            document.add(new Field("address",addresses[i],Field.Store.YES,Field.Index.ANALYZED));
+            document.add(new Field("birthday",birthdays[i],Field.Store.YES,Field.Index.ANALYZED));
+            writer.addDocument(document);
+        }
+
+        writer.optimize();
+
+        writer.close();
+        System.out.println("ok");
     }
 }

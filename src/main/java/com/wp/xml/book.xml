@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<booklist>
+    <cbook cid="0001">
+        cbook1
+        <bookname>XML的今生今世</bookname>
+        <price>66.66</price>
+        <note>
+            该书详细描写XML的从出生到衰老的整个过程
+        </note>
+        <newBook>
+            <cbook cid="0001">
+                cbook--newbook-cbook1
+                <bookname>XML教程0</bookname>
+                <price>90</price>
+                <note>
+                    该书详细描写XML
+                </note>
+            </cbook>
+        </newBook>
+
+    </cbook>
+    <cbook cid="0002">
+        cbook2
+        <bookname>XML教程1</bookname>
+        <price>90</price>
+        <note>
+            该书详细描写XML
+        </note>
+    </cbook>
+
+    <cbook cid="0003">
+        cbook3
+        <bookname>Java教程</bookname>
+        <price>70</price>
+        <note>
+            该书详细描写Java编程
+        </note>
+    </cbook>
+
+</booklist>

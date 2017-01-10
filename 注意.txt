@@ -1,0 +1,8 @@
+1.需要注意庖丁中文解析的开发环境，为paoding-analysis.properties中添加paoding.dic.home=F:\paoding-analysis-2.0.4-beta\dic，后面的路径为庖丁
+工具包中dic的路径
+2.压缩成jar包，可用命令jar cvf filename.jar 需要压缩的文件夹或者文件
+3.lucene查询方式总结  http://www.phperz.com/article/15/0511/60884.html
+4.使用中文创建索引时，一定要注意GBK，UTF-8等字符编码，否则不能进行正确的查找
+5.特别要注意有中文时，为了保证字符正确编码，将开发环境编码调至GBK最好。。。。。需要注意开发环境编码，页面编码和输入输出流编码
+6.英语search时最好用英语小写，大写查不出来，因为索引时转换成小写建立的。
+7.XPath即为XML路径语言（XML Path Language），它是一种用来确定XML文档中某部分位置的语言。Jaxen是一个Java编写的开源的XPath库。
